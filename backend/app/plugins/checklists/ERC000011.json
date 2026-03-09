@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ERC000011 - ENA Default Sample",
+  "type": "object",
+  "required": ["organism", "tax_id"],
+  "properties": {
+    "organism": { "type": "string" },
+    "tax_id": { "type": "integer" },
+    "collection_date": { "type": "string" },
+    "geographic_location": { "type": "string" }
+  }
+}

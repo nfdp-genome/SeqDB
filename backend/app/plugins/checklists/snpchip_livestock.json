@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SNP Chip Livestock",
+  "type": "object",
+  "required": [
+    "organism", "tax_id", "breed", "chip_type", "chip_manufacturer",
+    "chip_density", "total_snps_on_chip", "snps_called", "call_rate",
+    "call_rate_threshold", "genotyping_software", "software_version",
+    "reference_genome", "collection_date", "geographic_location",
+    "sex", "tissue_source", "purpose"
+  ],
+  "properties": {
+    "organism": { "type": "string" },
+    "tax_id": { "type": "integer" },
+    "breed": { "type": "string" },
+    "chip_type": { "type": "string" },
+    "chip_version": { "type": "string" },
+    "chip_manufacturer": { "type": "string", "enum": ["Illumina", "Affymetrix", "Thermo Fisher"] },
+    "chip_density": { "type": "string", "enum": ["Low", "Medium", "High", "HD"] },
+    "total_snps_on_chip": { "type": "integer" },
+    "snps_called": { "type": "integer" },
+    "call_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "call_rate_threshold": { "type": "number", "minimum": 0, "maximum": 1 },
+    "genotyping_software": { "type": "string" },
+    "software_version": { "type": "string" },
+    "cluster_file": { "type": "string" },
+    "reference_genome": { "type": "string" },
+    "collection_date": { "type": "string" },
+    "geographic_location": { "type": "string" },
+    "sex": { "type": "string", "enum": ["male", "female", "unknown"] },
+    "tissue_source": { "type": "string" },
+    "purpose": { "type": "string", "enum": ["GWAS", "parentage", "genomic_selection", "breed_characterization"] },
+    "het_rate": { "type": "number" },
+    "missing_rate": { "type": "number" }
+  }
+}

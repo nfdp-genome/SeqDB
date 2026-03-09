@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ERC000043 - ENA Virus Pathogen Reporting",
+  "type": "object",
+  "required": ["organism", "tax_id", "collection_date", "geographic_location", "host"],
+  "properties": {
+    "organism": { "type": "string" },
+    "tax_id": { "type": "integer" },
+    "collection_date": { "type": "string" },
+    "geographic_location": { "type": "string" },
+    "host": { "type": "string" },
+    "isolation_source": { "type": "string" },
+    "strain": { "type": "string" },
+    "virus_identifier": { "type": "string" }
+  }
+}

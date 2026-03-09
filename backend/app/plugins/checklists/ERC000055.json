@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ERC000055 - Farm Animal",
+  "type": "object",
+  "required": ["organism", "tax_id", "collection_date", "geographic_location"],
+  "properties": {
+    "organism": { "type": "string" },
+    "tax_id": { "type": "integer" },
+    "collection_date": { "type": "string" },
+    "geographic_location": { "type": "string", "pattern": "^.+:.+$" },
+    "breed": { "type": "string" },
+    "sex": { "type": "string", "enum": ["male", "female", "unknown"] },
+    "tissue": { "type": "string" },
+    "developmental_stage": { "type": "string" },
+    "host": { "type": "string" }
+  }
+}

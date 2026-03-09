@@ -1,0 +1,103 @@
+site_name: SeqDB
+site_description: SeqDB — Genomic Data Deposition and Management Platform
+site_author: NFLDP genome and data science 
+site_url: https://seqdb.readthedocs.io/
+
+repo_url: https://github.com/nfdp-genome/SeqDB
+repo_name: nfdp-genome/SeqDB
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+  # logo: assets/logo.png   # Uncomment when logo is added
+  # favicon: assets/favicon.ico
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/nfdp-genome/SeqDB
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Quick Start: user-guide/quickstart.md
+      - Submitting Data: user-guide/submitting-data.md
+      - Bulk Submission: user-guide/bulk-submission.md
+      - File Staging & Upload: user-guide/file-upload.md
+      - FAIR Data Principles: user-guide/fair-data.md
+  - API Reference:
+      - Overview: api/overview.md
+      - Authentication: api/authentication.md
+      - Projects: api/projects.md
+      - Samples: api/samples.md
+      - Experiments & Runs: api/experiments-runs.md
+      - File Reports: api/file-reports.md
+      - Bulk Submit: api/bulk-submit.md
+      - Search: api/search.md
+      - Staging: api/staging.md
+      - Checklists: api/checklists.md
+  - Architecture:
+      - System Overview: architecture/overview.md
+      - Data Model: architecture/data-model.md
+      - Cloud Deployment: architecture/cloud-deployment.md
+  - Developer Guide:
+      - Local Setup: developer/local-setup.md
+      - Contributing: developer/contributing.md
