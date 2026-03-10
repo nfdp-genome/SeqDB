@@ -11,8 +11,8 @@ Get the SeqDB platform running locally in 5 minutes.
 ## 1. Clone and set up the backend
 
 ```bash
-git clone https://github.com/nfdp/seqdb.git
-cd pathogen-genomics/backend
+git clone https://github.com/nfdp-genome/SeqDB.git
+cd SeqDB/backend
 
 # Create virtual environment
 python -m venv .venv
@@ -66,7 +66,7 @@ The web UI is now available at `http://localhost:3000`.
 # Register
 curl -X POST http://localhost:8000/api/v1/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"email": "user@example.com", "password": "pass123", "full_name": "Test User", "role": "researcher"}'
+  -d '{"email": "user@example.com", "password": "pass123", "full_name": "Test User", "role": "submitter"}'
 
 # Login
 TOKEN=$(curl -s -X POST http://localhost:8000/api/v1/auth/login \
@@ -77,7 +77,7 @@ TOKEN=$(curl -s -X POST http://localhost:8000/api/v1/auth/login \
 curl -X POST http://localhost:8000/api/v1/projects/ \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"title": "My First Study", "description": "Test project", "project_type": "whole_genome_sequencing"}'
+  -d '{"title": "My First Study", "description": "Test project", "project_type": "WGS"}'
 ```
 
 ## CLI Quick Start
@@ -88,7 +88,7 @@ Install the CLI:
 
 Login:
 
-    seqdb login --url https://api.seqdb.nfdp.dev --email you@example.com
+    seqdb login --url http://localhost:8000 --email you@example.com
 
 Submit data:
 

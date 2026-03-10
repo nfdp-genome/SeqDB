@@ -7,7 +7,7 @@ SeqDB provides a REST API modeled after the [ENA Portal API](https://www.ebi.ac.
 | Environment | URL |
 |-------------|-----|
 | Local dev | `http://localhost:8000/api/v1` |
-| Production | `https://api.nfdp.example.sa/api/v1` |
+| Production | `https://api.seqdb.nfdp.dev/api/v1` |
 
 ## Interactive documentation
 

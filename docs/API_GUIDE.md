@@ -193,7 +193,7 @@ curl -X POST http://localhost:8000/api/v1/projects/ \
   -d '{
     "title": "Camel WGS Study 2026",
     "description": "Whole genome sequencing of Arabian camels",
-    "project_type": "whole_genome_sequencing"
+    "project_type": "WGS"
   }'
 ```
 

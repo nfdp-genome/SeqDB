@@ -36,7 +36,7 @@ class SeqDBClient:
     async def login(self, email: str, password: str) -> dict[str, Any]:
         resp = await self._client.post(
             "/api/v1/auth/login",
-            data={"username": email, "password": password},
+            json={"email": email, "password": password},
         )
         resp.raise_for_status()
         return resp.json()

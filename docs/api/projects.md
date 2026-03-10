@@ -20,7 +20,7 @@ curl 'http://localhost:8000/api/v1/projects/'
     "ena_accession": null,
     "title": "Arabian Camel WGS 2026",
     "description": "Whole genome sequencing study",
-    "project_type": "whole_genome_sequencing",
+    "project_type": "WGS",
     "release_date": "2026-06-01",
     "license": "CC-BY",
     "created_at": "2026-01-15T10:00:00"
@@ -53,7 +53,7 @@ curl -X POST http://localhost:8000/api/v1/projects/ \
   -d '{
     "title": "Arabian Camel WGS 2026",
     "description": "Whole genome sequencing of Arabian camels in Riyadh",
-    "project_type": "whole_genome_sequencing"
+    "project_type": "WGS"
   }'
 ```
 
@@ -63,7 +63,7 @@ curl -X POST http://localhost:8000/api/v1/projects/ \
 |-------|------|----------|-------------|
 | `title` | string | Yes | Project title |
 | `description` | string | No | Detailed description |
-| `project_type` | string | Yes | e.g., `whole_genome_sequencing`, `metagenomics` |
+| `project_type` | string | Yes | One of: `WGS`, `Metagenomics`, `Genotyping`, `Transcriptomics`, `Amplicon`, `Other` |
 | `release_date` | string | No | ISO date (YYYY-MM-DD) |
 | `license` | string | No | Default: `CC-BY` |
 

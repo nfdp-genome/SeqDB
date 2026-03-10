@@ -23,7 +23,7 @@ A **project** groups related samples under a single study. Every submission belo
 2. Choose **Create New** or **Select Existing**
 3. For new projects, fill in:
     - **Title** — Short descriptive name (e.g., "Arabian Camel WGS 2026")
-    - **Project Type** — Select from: `whole_genome_sequencing`, `metagenomics`, `transcriptomics`, etc.
+    - **Project Type** — Select from: `WGS`, `Metagenomics`, `Transcriptomics`, `Genotyping`, `Amplicon`, `Other`
     - **Description** — Optional but recommended for FAIR compliance
 4. Click **Next**
 
@@ -45,7 +45,7 @@ Files must be staged before they can be linked to samples.
 
 For files larger than 5 GB, use FTP:
 
-1. Connect to the FTP server: `ftp://ftp.nfdp.example.sa`
+1. Connect to the FTP server: `ftp://ftp.seqdb.nfdp.dev`
 2. Log in with your SeqDB credentials
 3. Upload files to your user directory
 4. Files appear in the staging area automatically
