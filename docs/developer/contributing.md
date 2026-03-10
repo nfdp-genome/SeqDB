@@ -3,13 +3,16 @@
 ## Project structure
 
 ```
-pathogen_genomics/
+SeqDB/
 ├── backend/           # FastAPI backend
 │   ├── app/
 │   │   ├── api/v1/    # Route handlers
 │   │   ├── models/    # SQLAlchemy ORM models
 │   │   ├── schemas/   # Pydantic request/response schemas
 │   │   └── services/  # Business logic
+│   └── tests/
+├── cli/               # seqdb-cli (Python CLI tool)
+│   ├── src/seqdb_cli/ # CLI source code
 │   └── tests/
 ├── frontend/          # Next.js frontend
 │   └── src/

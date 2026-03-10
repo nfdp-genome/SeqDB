@@ -43,12 +43,12 @@ For files larger than 5 GB, use FTP to avoid browser timeout issues.
 
     ```bash
     # Using lftp (recommended — supports resume)
-    lftp -u your_email@example.com ftp://ftp.nfdp.example.sa
+    lftp -u your_email@example.com ftp://ftp.seqdb.nfdp.dev
     > mput *.fastq.gz
     > quit
 
     # Using standard ftp
-    ftp ftp.nfdp.example.sa
+    ftp ftp.seqdb.nfdp.dev
     > put SAMPLE_001_R1.fastq.gz
     ```
 
@@ -56,7 +56,7 @@ For files larger than 5 GB, use FTP to avoid browser timeout issues.
 
     ```
     # Using FileZilla
-    Host: ftp.nfdp.example.sa
+    Host: ftp.seqdb.nfdp.dev
     Username: your_email@example.com
     Password: your SeqDB password
     Port: 21

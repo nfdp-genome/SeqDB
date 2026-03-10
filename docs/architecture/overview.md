@@ -97,7 +97,7 @@ sequenceDiagram
 ## Directory structure
 
 ```
-pathogen_genomics/
+SeqDB/
 ├── backend/
 │   ├── app/
 │   │   ├── api/v1/          # API endpoints
@@ -107,6 +107,9 @@ pathogen_genomics/
 │   │   ├── config.py        # Configuration
 │   │   ├── database.py      # DB connection
 │   │   └── main.py          # FastAPI app
+│   └── tests/
+├── cli/
+│   ├── src/seqdb_cli/       # CLI source code
 │   └── tests/
 ├── frontend/
 │   ├── src/

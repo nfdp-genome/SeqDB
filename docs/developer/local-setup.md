@@ -17,7 +17,7 @@ The simplest setup uses SQLite — no Docker required.
 ### Backend
 
 ```bash
-cd pathogen_genomics/backend
+cd SeqDB/backend
 
 # Create virtual environment
 python -m venv .venv
@@ -40,7 +40,7 @@ The backend creates all database tables automatically on startup.
 ### Frontend
 
 ```bash
-cd pathogen_genomics/frontend
+cd SeqDB/frontend
 
 # Install dependencies
 npm install
@@ -56,7 +56,7 @@ Open `http://localhost:3000` in your browser.
 For production-like setup with PostgreSQL, MinIO, and Redis:
 
 ```bash
-cd pathogen_genomics
+cd SeqDB
 
 # Start all services
 docker-compose up -d

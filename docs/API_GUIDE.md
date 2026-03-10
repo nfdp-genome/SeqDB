@@ -2,7 +2,7 @@
 
 The SeqDB platform provides a REST API modeled after the [ENA Portal API](https://www.ebi.ac.uk/ena/portal/api/). If you have used ENA's programmatic access before, you will find this familiar.
 
-**Base URL:** `http://localhost:8000/api/v1` (dev) or `https://nfdp.example.sa/api/v1` (production)
+**Base URL:** `http://localhost:8000/api/v1` (dev) or `https://api.seqdb.nfdp.dev/api/v1` (production)
 
 ---
 
