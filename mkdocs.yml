@@ -1,7 +1,7 @@
 site_name: SeqDB
 site_description: SeqDB — Genomic Data Deposition and Management Platform
 site_author: NFLDP genome and data science 
-site_url: https://seqdb.readthedocs.io/
+site_url: https://docs.seqdb.nfdp.dev/
 
 repo_url: https://github.com/nfdp-genome/SeqDB
 repo_name: nfdp-genome/SeqDB
