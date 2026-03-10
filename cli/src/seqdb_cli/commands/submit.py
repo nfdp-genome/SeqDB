@@ -136,7 +136,7 @@ def submit(
             confirm_resp.raise_for_status()
             result = confirm_resp.json()
 
-            console.print(f"\n[green]Submission complete![/green]")
+            console.print("\n[green]Submission complete![/green]")
             console.print(f"  Samples created: {result.get('samples_created', 0)}")
             console.print(f"  Experiments created: {result.get('experiments_created', 0)}")
             console.print(f"  Runs created: {result.get('runs_created', 0)}")

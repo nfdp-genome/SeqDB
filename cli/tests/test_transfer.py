@@ -1,7 +1,6 @@
 import httpx
 import pytest
 import respx
-from pathlib import Path
 from seqdb_cli.transfer import upload_files, download_files
 
 

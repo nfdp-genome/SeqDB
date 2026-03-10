@@ -10,7 +10,7 @@ from rich.console import Console
 
 from seqdb_cli.client import SeqDBClient
 from seqdb_cli.config import CONFIG_PATH, load_config
-from seqdb_cli.formats import get_formatter, list_formats
+from seqdb_cli.formats import get_formatter
 from seqdb_cli.transfer import download_files
 
 console = Console()
@@ -19,7 +19,7 @@ console = Console()
 def fetch(
     accession: str = typer.Argument(..., help="Project, sample, or run accession"),
     output: Path = typer.Option("./seqdb-data", "--output", "-o", help="Output directory"),
-    format: str = typer.Option("generic", "--format", "-f", help=f"Samplesheet format"),
+    format: str = typer.Option("generic", "--format", "-f", help="Samplesheet format"),
     urls_only: bool = typer.Option(False, "--urls-only", help="Output presigned URLs instead of downloading"),
     threads: int = typer.Option(4, "--threads", "-t", help="Concurrent downloads"),
     strandedness: str = typer.Option("auto", "--strandedness", help="Strandedness for rnaseq format"),
@@ -89,7 +89,7 @@ def fetch(
             if not urls_only:
                 console.print(f"\n  Ready: nextflow run nf-core/<pipeline> --input {samplesheet_path}")
             else:
-                console.print(f"\n  [dim]Samplesheet contains presigned URLs (valid ~24h)[/dim]")
+                console.print("\n  [dim]Samplesheet contains presigned URLs (valid ~24h)[/dim]")
         finally:
             await client.close()
 

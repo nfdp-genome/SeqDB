@@ -1,9 +1,7 @@
-import csv
 import httpx
 import pytest
 import respx
-from pathlib import Path
-from seqdb_cli.commands.fetch import fetch as fetch_command, _resolve_accession
+from seqdb_cli.commands.fetch import _resolve_accession
 from seqdb_cli.config import SeqDBConfig
 from seqdb_cli.client import SeqDBClient
 

@@ -1,4 +1,3 @@
-from pathlib import Path
 from seqdb_cli.config import SeqDBConfig, load_config, save_config
 
 

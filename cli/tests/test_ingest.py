@@ -1,8 +1,4 @@
 import json
-import httpx
-import pytest
-import respx
-from seqdb_cli.commands.ingest import ingest as ingest_command
 
 # Test the parsing logic directly rather than via CLI runner to avoid main.py conflicts
 def test_parse_multiqc_data(tmp_path):

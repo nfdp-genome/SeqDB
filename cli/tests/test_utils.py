@@ -1,4 +1,3 @@
-from pathlib import Path
 from seqdb_cli.utils import compute_md5, discover_sequence_files
 
 
