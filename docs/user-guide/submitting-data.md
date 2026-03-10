@@ -126,3 +126,41 @@ After confirmation, you'll see the created accession numbers and can view them o
 - Check FAIR compliance score and suggestions
 - Download files via the API: `GET /api/v1/filereport?accession={project_accession}`
 - Add more samples later via the project's **Bulk Upload** button
+
+## CLI Submission
+
+The same workflow can be performed entirely from the command line using the `seqdb` CLI.
+
+### Install and authenticate
+
+```bash
+pip install seqdb-cli
+seqdb login --url https://api.seqdb.nfdp.dev --email you@example.com
+```
+
+### Download a checklist template
+
+```bash
+seqdb template ERC000011 --output my_samples.tsv
+```
+
+### Upload files and submit
+
+```bash
+# Upload FASTQ files to staging and submit metadata in one command
+seqdb submit my_samples.tsv \
+  --checklist ERC000011 \
+  --project NFDP-PRJ-000001 \
+  --files ./reads/ \
+  --threads 8
+```
+
+Add `--yes` to skip the interactive confirmation prompt.
+
+### Check submission status
+
+```bash
+seqdb status NFDP-PRJ-000001
+```
+
+See the [CLI Reference](cli.md) for the full list of options.

@@ -165,3 +165,46 @@ If none match, the system suggests the closest staged filename.
 | `library_strategy` | No | WGS (default) |
 
 *Required fields depend on the selected checklist.
+
+## CLI Bulk Submit
+
+The `seqdb` CLI wraps all of the above steps into a single command.
+
+### Install and authenticate
+
+```bash
+pip install seqdb-cli
+seqdb login --url https://api.seqdb.nfdp.dev --email you@example.com
+```
+
+### Download a template
+
+```bash
+seqdb template ERC000011 --output samples.tsv
+```
+
+### Validate before submitting
+
+```bash
+seqdb validate samples.tsv --checklist ERC000011
+```
+
+### Submit all at once
+
+```bash
+seqdb submit samples.tsv \
+  --checklist ERC000011 \
+  --project NFDP-PRJ-000001 \
+  --files ./reads/ \
+  --threads 8
+```
+
+The CLI uploads files in parallel (controlled by `--threads`), validates the sample sheet, and on success prints the created accessions. Add `--yes` to skip the confirmation prompt for non-interactive use (e.g., in CI pipelines).
+
+### Check results
+
+```bash
+seqdb status NFDP-PRJ-000001
+```
+
+See the [CLI Reference](cli.md) for full option details.

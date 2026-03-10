@@ -80,8 +80,30 @@ curl -X POST http://localhost:8000/api/v1/projects/ \
   -d '{"title": "My First Study", "description": "Test project", "project_type": "whole_genome_sequencing"}'
 ```
 
+## CLI Quick Start
+
+Install the CLI:
+
+    pip install seqdb-cli
+
+Login:
+
+    seqdb login --url https://api.seqdb.nfdp.dev --email you@example.com
+
+Submit data:
+
+    seqdb template ERC000011
+    # Fill in template.tsv with your metadata
+    seqdb submit template.tsv --checklist ERC000011 --project NFDP-PRJ-000001 --files ./reads/
+
+Fetch reads for a pipeline:
+
+    seqdb fetch NFDP-PRJ-000001 -o ./data/ --format rnaseq
+    nextflow run nf-core/rnaseq --input ./data/samplesheet.csv
+
 ## Next steps
 
 - [Submitting Data](submitting-data.md) — Full walkthrough of the submission process
+- [CLI Reference](cli.md) — Full CLI command reference
 - [API Overview](../api/overview.md) — Programmatic access for bioinformaticians
 - [Bulk Submission](bulk-submission.md) — Submit many samples at once

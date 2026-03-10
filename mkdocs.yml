@@ -79,6 +79,7 @@ nav:
   - Home: index.md
   - Getting Started:
       - Quick Start: user-guide/quickstart.md
+      - CLI Reference: user-guide/cli.md
       - Submitting Data: user-guide/submitting-data.md
       - Bulk Submission: user-guide/bulk-submission.md
       - File Staging & Upload: user-guide/file-upload.md
