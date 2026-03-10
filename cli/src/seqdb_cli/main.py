@@ -1,5 +1,6 @@
 import typer
 from seqdb_cli.commands.auth import login, logout
+from seqdb_cli.commands.submit import template, upload, validate, submit
 
 app = typer.Typer(
     name="seqdb",
@@ -9,6 +10,10 @@ app = typer.Typer(
 
 app.command()(login)
 app.command()(logout)
+app.command()(template)
+app.command()(upload)
+app.command()(validate)
+app.command()(submit)
 
 
 @app.callback()
