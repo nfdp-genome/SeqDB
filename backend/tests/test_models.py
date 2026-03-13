@@ -1,6 +1,6 @@
 from app.models.enums import (
-    Platform, LibraryStrategy, LibrarySource, LibraryLayout,
-    FileType, ProjectType, SubmissionStatus, QCStatus, UserRole,
+    Platform, FileType, SubmissionStatus, UserRole,
+    Archive, ArchiveSubmissionStatus, OntologyType,
 )
 from app.models.project import Project
 from app.models.sample import Sample
@@ -9,11 +9,9 @@ from app.models.run import Run
 from app.models.submission import Submission
 from app.models.user import User
 from app.models.qc_report import QCReport
-from app.models.enums import Archive, ArchiveSubmissionStatus, OntologyType
 from app.models.archive_submission import ArchiveSubmission
 from app.models.domain_schema import DomainSchema
 from app.models.ontology_term import OntologyTerm
-import sqlalchemy as sa
 
 
 def test_new_enums_archive():

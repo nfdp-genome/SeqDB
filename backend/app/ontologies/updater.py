@@ -1,7 +1,6 @@
 """Refresh ontology terms from remote APIs (OLS4 and Entrez)."""
 
 import httpx
-from app.models.enums import OntologyType
 
 
 async def fetch_ols_terms(ontology_id: str, limit: int = 500) -> list[dict]:

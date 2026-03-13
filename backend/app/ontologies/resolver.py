@@ -16,7 +16,7 @@ class OntologyResolver:
             select(OntologyTerm).where(
                 OntologyTerm.ontology == ontology,
                 OntologyTerm.label == value,
-                OntologyTerm.is_obsolete == False,
+                OntologyTerm.is_obsolete.is_(False),
             )
         )
         term = result.scalar_one_or_none()
@@ -27,7 +27,7 @@ class OntologyResolver:
         result = await self.db.execute(
             select(OntologyTerm).where(
                 OntologyTerm.ontology == ontology,
-                OntologyTerm.is_obsolete == False,
+                OntologyTerm.is_obsolete.is_(False),
             )
         )
         all_terms = result.scalars().all()
@@ -65,7 +65,7 @@ class OntologyResolver:
         result = await self.db.execute(
             select(OntologyTerm).where(
                 OntologyTerm.ontology == ontology,
-                OntologyTerm.is_obsolete == False,
+                OntologyTerm.is_obsolete.is_(False),
             )
         )
         all_terms = result.scalars().all()

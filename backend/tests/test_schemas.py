@@ -1,9 +1,10 @@
 import pytest
-from datetime import date
+from datetime import date, datetime
 from pydantic import ValidationError
 from app.schemas.project import ProjectCreate, ProjectResponse
-from app.schemas.sample import SampleCreate
-from app.schemas.experiment import ExperimentCreate
+from app.schemas.sample import SampleCreate, SampleResponse
+from app.schemas.experiment import ExperimentCreate, ExperimentResponse
+from app.schemas.run import RunResponse
 
 
 def test_project_create_valid():
@@ -70,12 +71,6 @@ def test_experiment_create_invalid_accession():
 
 
 # --- Chunk 1: NCBI Data Model Alignment schema tests ---
-
-from datetime import datetime
-from app.schemas.project import ProjectResponse
-from app.schemas.sample import SampleResponse
-from app.schemas.experiment import ExperimentResponse
-from app.schemas.run import RunResponse
 
 
 def test_project_response_has_ncbi_accession():
