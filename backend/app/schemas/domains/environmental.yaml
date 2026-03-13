@@ -1,0 +1,69 @@
+domain: environmental
+display_name: "Environmental"
+ena_checklist: ERC000043
+ncbi_package: MIMS.me.soil.6.0
+
+fields:
+  organism:
+    type: string
+    required: true
+    ontology: ncbi_taxonomy
+    description: "Scientific name or metagenome descriptor"
+    ena: { name: "organism" }
+    ncbi: { name: "organism" }
+  tax_id:
+    type: integer
+    required: true
+    description: "NCBI taxonomy ID"
+    ena: { name: "tax_id" }
+    ncbi: { name: "tax_id" }
+  collection_date:
+    type: date
+    required: true
+    description: "Date of sample collection"
+    ena: { name: "collection_date", format: "YYYY-MM-DD" }
+    ncbi: { name: "collection_date", format: "YYYY-MM-DD" }
+  geographic_location:
+    type: string
+    required: true
+    ontology: gaz
+    description: "Geographic origin of the sample"
+    ena: { name: "geographic_location_(country_and/or_sea)" }
+    ncbi: { name: "geo_loc_name" }
+  biome:
+    type: string
+    required: true
+    ontology: envo
+    description: "ENVO biome classification"
+    ena: { name: "environment_(biome)" }
+    ncbi: { name: "env_broad_scale" }
+  feature:
+    type: string
+    required: true
+    ontology: envo
+    description: "ENVO environmental feature"
+    ena: { name: "environment_(feature)" }
+    ncbi: { name: "env_local_scale" }
+  material:
+    type: string
+    required: true
+    ontology: envo
+    description: "ENVO environmental material"
+    ena: { name: "environment_(material)" }
+    ncbi: { name: "env_medium" }
+  depth:
+    type: string
+    required: false
+    description: "Depth at which sample was collected"
+    ena: { name: "depth" }
+    ncbi: { name: "depth" }
+  elevation:
+    type: string
+    required: false
+    ena: { name: "elevation" }
+    ncbi: { name: "elev" }
+  sample_collection_device:
+    type: string
+    required: false
+    ena: { name: "sample_collection_device" }
+    ncbi: { name: "samp_collect_device" }

@@ -1,0 +1,56 @@
+domain: livestock
+display_name: "Livestock & Veterinary"
+ena_checklist: ERC000011
+ncbi_package: Model.organism.animal.1.0
+
+fields:
+  organism:
+    type: string
+    required: true
+    ontology: ncbi_taxonomy
+    description: "Scientific name of the organism"
+    ena: { name: "organism" }
+    ncbi: { name: "organism" }
+  tax_id:
+    type: integer
+    required: true
+    description: "NCBI taxonomy ID"
+    ena: { name: "tax_id" }
+    ncbi: { name: "tax_id" }
+  breed:
+    type: string
+    required: false
+    ontology: lbo
+    description: "Breed name"
+    ena: { name: "breed" }
+    ncbi: { name: "breed" }
+  sex:
+    type: enum
+    values: [male, female, unknown]
+    required: false
+    ena: { name: "sex" }
+    ncbi: { name: "sex" }
+  collection_date:
+    type: date
+    required: true
+    description: "Date of sample collection"
+    ena: { name: "collection_date", format: "YYYY-MM-DD" }
+    ncbi: { name: "collection_date", format: "YYYY-MM-DD" }
+  geographic_location:
+    type: string
+    required: true
+    ontology: gaz
+    description: "Geographic origin of the sample"
+    ena: { name: "geographic_location_(country_and/or_sea)" }
+    ncbi: { name: "geo_loc_name" }
+  tissue:
+    type: string
+    required: false
+    description: "Tissue type"
+    ena: { name: "tissue_type" }
+    ncbi: { name: "tissue" }
+  developmental_stage:
+    type: string
+    required: false
+    ena: { name: "dev_stage" }
+    ncbi: { name: "dev_stage" }
