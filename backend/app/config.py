@@ -13,6 +13,10 @@ class Settings(BaseSettings):
     jwt_access_token_expire_minutes: int = 60
     app_env: str = "development"
     app_debug: bool = True
+    ncbi_submission_url: str = "https://submit.ncbi.nlm.nih.gov/api/2.0/submissions/"
+    ncbi_api_key: str = ""
+    ncbi_submitter_email: str = ""
+    ncbi_center_name: str = "NFDP"
 
     model_config = {"env_file": ".env"}
 
