@@ -13,6 +13,7 @@ class Project(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     internal_accession: Mapped[str] = mapped_column(String(20), unique=True, index=True)
     ena_accession: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
+    ncbi_accession: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
     title: Mapped[str] = mapped_column(String(500))
     description: Mapped[str] = mapped_column(Text)
     project_type: Mapped[ProjectType] = mapped_column(SAEnum(ProjectType))

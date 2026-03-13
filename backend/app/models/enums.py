@@ -84,3 +84,24 @@ class StagedFileStatus(str, enum.Enum):
     VERIFIED = "verified"
     LINKED = "linked"
     EXPIRED = "expired"
+
+
+class Archive(str, enum.Enum):
+    ENA = "ENA"
+    NCBI = "NCBI"
+
+
+class ArchiveSubmissionStatus(str, enum.Enum):
+    DRAFT = "draft"
+    SUBMITTED = "submitted"
+    PROCESSING = "processing"
+    PUBLIC = "public"
+    FAILED = "failed"
+
+
+class OntologyType(str, enum.Enum):
+    NCBI_TAXONOMY = "ncbi_taxonomy"
+    GAZ = "gaz"
+    EFO = "efo"
+    LBO = "lbo"
+    ENVO = "envo"

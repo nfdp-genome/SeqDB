@@ -17,6 +17,7 @@ class SampleCreate(BaseModel):
     developmental_stage: Optional[str] = None
     sex: Optional[str] = None
     custom_fields: Optional[dict] = None
+    domain_schema_id: Optional[str] = None
 
     @field_validator("project_accession")
     @classmethod
@@ -38,6 +39,8 @@ class SampleUpdate(BaseModel):
 class SampleResponse(BaseModel):
     accession: str
     ena_accession: Optional[str] = None
+    ncbi_accession: Optional[str] = None
+    domain_schema_id: Optional[str] = None
     organism: str
     tax_id: int
     breed: Optional[str] = None

@@ -13,6 +13,7 @@ class Experiment(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     internal_accession: Mapped[str] = mapped_column(String(20), unique=True, index=True)
     ena_accession: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
+    ncbi_accession: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
     platform: Mapped[Platform] = mapped_column(SAEnum(Platform))
     instrument_model: Mapped[str] = mapped_column(String(255))
     library_strategy: Mapped[LibraryStrategy] = mapped_column(SAEnum(LibraryStrategy))

@@ -13,6 +13,7 @@ class Run(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     internal_accession: Mapped[str] = mapped_column(String(20), unique=True, index=True)
     ena_accession: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
+    ncbi_accession: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
     file_type: Mapped[FileType] = mapped_column(SAEnum(FileType))
     file_path: Mapped[str] = mapped_column(String(1000))
     file_size: Mapped[int] = mapped_column(BigInteger)

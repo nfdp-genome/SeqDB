@@ -22,6 +22,7 @@ class ProjectUpdate(BaseModel):
 class ProjectResponse(BaseModel):
     accession: str
     ena_accession: Optional[str] = None
+    ncbi_accession: Optional[str] = None
     title: str
     description: str
     project_type: ProjectType

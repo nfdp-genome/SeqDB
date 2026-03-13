@@ -12,6 +12,8 @@ class Sample(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     internal_accession: Mapped[str] = mapped_column(String(20), unique=True, index=True)
     ena_accession: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
+    ncbi_accession: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
+    domain_schema_id: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
     organism: Mapped[str] = mapped_column(String(255))
     tax_id: Mapped[int] = mapped_column(Integer)
     breed: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)

@@ -25,6 +25,7 @@ class ExperimentCreate(BaseModel):
 class ExperimentResponse(BaseModel):
     accession: str
     ena_accession: Optional[str] = None
+    ncbi_accession: Optional[str] = None
     platform: Platform
     instrument_model: str
     library_strategy: LibraryStrategy
