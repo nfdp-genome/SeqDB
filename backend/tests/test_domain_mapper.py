@@ -1,5 +1,6 @@
 import pytest
 from app.schemas.domains import list_domains, get_domain_schema
+
 from app.schemas.domains.mapper import (
     validate_sample,
     export_ena,
@@ -105,3 +106,14 @@ def test_get_template_columns_livestock():
 def test_get_template_columns_unknown_domain():
     cols = get_template_columns("nonexistent")
     assert cols == []
+
+
+@pytest.mark.asyncio
+async def test_checklists_domains_endpoint(client):
+    response = await client.get("/api/v1/checklists/domains")
+    assert response.status_code == 200
+    data = response.json()
+    ids = {d["domain"] for d in data}
+    assert "livestock" in ids
+    assert "microbe" in ids
+    assert "environmental" in ids
