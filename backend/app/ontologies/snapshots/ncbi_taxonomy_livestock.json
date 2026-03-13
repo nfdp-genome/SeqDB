@@ -1,0 +1,26 @@
+{
+  "ontology": "ncbi_taxonomy",
+  "description": "Scoped subset: livestock, common pathogens, environmental microbes",
+  "terms": [
+    {"term_id": "NCBITaxon:9838", "label": "Camelus dromedarius", "synonyms": ["dromedary", "Arabian camel"], "parent_id": "NCBITaxon:9836"},
+    {"term_id": "NCBITaxon:9913", "label": "Bos taurus", "synonyms": ["cattle", "cow", "domestic cattle"], "parent_id": "NCBITaxon:9903"},
+    {"term_id": "NCBITaxon:9940", "label": "Ovis aries", "synonyms": ["sheep", "domestic sheep"], "parent_id": "NCBITaxon:9935"},
+    {"term_id": "NCBITaxon:9925", "label": "Capra hircus", "synonyms": ["goat", "domestic goat"], "parent_id": "NCBITaxon:9924"},
+    {"term_id": "NCBITaxon:9796", "label": "Equus caballus", "synonyms": ["horse", "domestic horse"], "parent_id": "NCBITaxon:9789"},
+    {"term_id": "NCBITaxon:9823", "label": "Sus scrofa", "synonyms": ["pig", "wild boar"], "parent_id": "NCBITaxon:9821"},
+    {"term_id": "NCBITaxon:9031", "label": "Gallus gallus", "synonyms": ["chicken", "red junglefowl"], "parent_id": "NCBITaxon:9030"},
+    {"term_id": "NCBITaxon:9837", "label": "Camelus bactrianus", "synonyms": ["Bactrian camel"], "parent_id": "NCBITaxon:9836"},
+    {"term_id": "NCBITaxon:9844", "label": "Lama glama", "synonyms": ["llama"], "parent_id": "NCBITaxon:9842"},
+    {"term_id": "NCBITaxon:9845", "label": "Vicugna pacos", "synonyms": ["alpaca"], "parent_id": "NCBITaxon:9842"},
+    {"term_id": "NCBITaxon:562", "label": "Escherichia coli", "synonyms": ["E. coli"], "parent_id": "NCBITaxon:561"},
+    {"term_id": "NCBITaxon:1280", "label": "Staphylococcus aureus", "synonyms": ["S. aureus"], "parent_id": "NCBITaxon:1279"},
+    {"term_id": "NCBITaxon:1773", "label": "Mycobacterium tuberculosis", "synonyms": ["M. tuberculosis", "TB bacillus"], "parent_id": "NCBITaxon:1763"},
+    {"term_id": "NCBITaxon:1313", "label": "Streptococcus pneumoniae", "synonyms": ["pneumococcus"], "parent_id": "NCBITaxon:1301"},
+    {"term_id": "NCBITaxon:287", "label": "Pseudomonas aeruginosa", "synonyms": ["P. aeruginosa"], "parent_id": "NCBITaxon:286"},
+    {"term_id": "NCBITaxon:5207", "label": "Cryptococcus neoformans", "synonyms": [], "parent_id": "NCBITaxon:5206"},
+    {"term_id": "NCBITaxon:9606", "label": "Homo sapiens", "synonyms": ["human"], "parent_id": "NCBITaxon:9605"},
+    {"term_id": "NCBITaxon:408170", "label": "soil metagenome", "synonyms": [], "parent_id": "NCBITaxon:410657"},
+    {"term_id": "NCBITaxon:449393", "label": "freshwater metagenome", "synonyms": [], "parent_id": "NCBITaxon:410657"},
+    {"term_id": "NCBITaxon:408172", "label": "marine metagenome", "synonyms": [], "parent_id": "NCBITaxon:410657"}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "ontology": "efo",
+  "description": "Sequencing-relevant experimental factor terms",
+  "terms": [
+    {"term_id": "EFO:0003740", "label": "whole genome sequencing", "synonyms": ["WGS"], "parent_id": null},
+    {"term_id": "EFO:0003738", "label": "RNA-seq", "synonyms": ["RNA sequencing"], "parent_id": null},
+    {"term_id": "EFO:0005292", "label": "whole exome sequencing", "synonyms": ["WXS", "WES"], "parent_id": null},
+    {"term_id": "EFO:0003747", "label": "amplicon sequencing", "synonyms": ["targeted amplicon"], "parent_id": null},
+    {"term_id": "EFO:0008896", "label": "metagenomics", "synonyms": ["metagenomic sequencing"], "parent_id": null}
+  ]
+}

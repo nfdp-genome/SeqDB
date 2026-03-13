@@ -1,0 +1,17 @@
+{
+  "ontology": "gaz",
+  "description": "Geographic locations relevant to NFDP",
+  "terms": [
+    {"term_id": "GAZ:00005282", "label": "Saudi Arabia", "synonyms": ["Kingdom of Saudi Arabia", "KSA"], "parent_id": null},
+    {"term_id": "GAZ:00009799", "label": "Riyadh", "synonyms": [], "parent_id": "GAZ:00005282"},
+    {"term_id": "GAZ:00009801", "label": "Jeddah", "synonyms": ["Jiddah"], "parent_id": "GAZ:00005282"},
+    {"term_id": "GAZ:00002459", "label": "United Arab Emirates", "synonyms": ["UAE"], "parent_id": null},
+    {"term_id": "GAZ:00005283", "label": "Oman", "synonyms": ["Sultanate of Oman"], "parent_id": null},
+    {"term_id": "GAZ:00004979", "label": "Kuwait", "synonyms": ["State of Kuwait"], "parent_id": null},
+    {"term_id": "GAZ:00005286", "label": "Qatar", "synonyms": ["State of Qatar"], "parent_id": null},
+    {"term_id": "GAZ:00005285", "label": "Bahrain", "synonyms": ["Kingdom of Bahrain"], "parent_id": null},
+    {"term_id": "GAZ:00000448", "label": "Africa", "synonyms": [], "parent_id": null},
+    {"term_id": "GAZ:00000460", "label": "Kenya", "synonyms": ["Republic of Kenya"], "parent_id": "GAZ:00000448"},
+    {"term_id": "GAZ:00000566", "label": "Ethiopia", "synonyms": [], "parent_id": "GAZ:00000448"}
+  ]
+}

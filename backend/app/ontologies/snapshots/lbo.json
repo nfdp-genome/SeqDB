@@ -1,0 +1,16 @@
+{
+  "ontology": "lbo",
+  "description": "Livestock breed ontology - common breeds",
+  "terms": [
+    {"term_id": "LBO:0000001", "label": "Arabian", "synonyms": ["Arabian camel breed"], "parent_id": null},
+    {"term_id": "LBO:0000002", "label": "Angus", "synonyms": ["Aberdeen Angus"], "parent_id": null},
+    {"term_id": "LBO:0000003", "label": "Holstein", "synonyms": ["Holstein-Friesian"], "parent_id": null},
+    {"term_id": "LBO:0000004", "label": "Hereford", "synonyms": [], "parent_id": null},
+    {"term_id": "LBO:0000005", "label": "Awassi", "synonyms": ["Awasi"], "parent_id": null},
+    {"term_id": "LBO:0000006", "label": "Najdi", "synonyms": ["Nejdi"], "parent_id": null},
+    {"term_id": "LBO:0000007", "label": "Majaheem", "synonyms": ["Majahim"], "parent_id": null},
+    {"term_id": "LBO:0000008", "label": "Wadah", "synonyms": [], "parent_id": null},
+    {"term_id": "LBO:0000009", "label": "Thoroughbred", "synonyms": [], "parent_id": null},
+    {"term_id": "LBO:0000010", "label": "Arabian horse", "synonyms": ["Arab horse"], "parent_id": null}
+  ]
+}

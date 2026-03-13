@@ -1,0 +1,16 @@
+{
+  "ontology": "envo",
+  "description": "Environment ontology - biomes and environmental features",
+  "terms": [
+    {"term_id": "ENVO:00000446", "label": "desert biome", "synonyms": ["desert"], "parent_id": null},
+    {"term_id": "ENVO:01000252", "label": "freshwater biome", "synonyms": ["freshwater"], "parent_id": null},
+    {"term_id": "ENVO:01000048", "label": "ocean biome", "synonyms": ["marine biome", "ocean"], "parent_id": null},
+    {"term_id": "ENVO:00000108", "label": "meadow", "synonyms": ["grassland"], "parent_id": null},
+    {"term_id": "ENVO:00002259", "label": "agricultural soil", "synonyms": ["farm soil"], "parent_id": null},
+    {"term_id": "ENVO:00002007", "label": "sediment", "synonyms": [], "parent_id": null},
+    {"term_id": "ENVO:00002006", "label": "liquid water body", "synonyms": ["water body"], "parent_id": null},
+    {"term_id": "ENVO:00001998", "label": "soil", "synonyms": [], "parent_id": null},
+    {"term_id": "ENVO:00002042", "label": "surface water", "synonyms": [], "parent_id": null},
+    {"term_id": "ENVO:01000002", "label": "arid biome", "synonyms": ["arid environment"], "parent_id": null}
+  ]
+}
