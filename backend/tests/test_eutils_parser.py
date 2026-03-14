@@ -66,3 +66,45 @@ def test_complex_query():
 def test_empty_query():
     tokens = parse_query("")
     assert tokens == []
+
+
+# --- Search engine tests ---
+
+from app.eutils.search import build_query_filter, FIELD_MAP, DB_CONFIG
+
+
+def test_field_map_has_standard_fields():
+    assert "ORGN" in FIELD_MAP
+    assert "TITL" in FIELD_MAP
+    assert "PDAT" in FIELD_MAP
+    assert "ACCN" in FIELD_MAP
+
+
+def test_db_config_bioproject():
+    assert "bioproject" in DB_CONFIG
+    cfg = DB_CONFIG["bioproject"]
+    assert cfg["model"].__tablename__ == "projects"
+
+
+def test_db_config_biosample():
+    assert "biosample" in DB_CONFIG
+    cfg = DB_CONFIG["biosample"]
+    assert cfg["model"].__tablename__ == "samples"
+
+
+def test_db_config_sra():
+    assert "sra" in DB_CONFIG
+    cfg = DB_CONFIG["sra"]
+    assert cfg["model"].__tablename__ == "experiments"
+
+
+def test_build_filter_simple_text():
+    tokens = parse_query("camel")
+    filter_clause = build_query_filter(tokens, "bioproject")
+    assert filter_clause is not None
+
+
+def test_build_filter_field_qualified():
+    tokens = parse_query("Camelus[ORGN]")
+    filter_clause = build_query_filter(tokens, "biosample")
+    assert filter_clause is not None
