@@ -17,6 +17,7 @@ from app.api.v1.filereport import router as filereport_router
 from app.api.v1.ontologies import router as ontologies_router
 from app.api.v1.archive_submissions import router as archive_submissions_router
 from app.api.v1.ncbi import router as ncbi_router
+from app.api.v1.eutils import router as eutils_router
 
 api_router = APIRouter()
 api_router.include_router(auth_router)
@@ -36,6 +37,7 @@ api_router.include_router(filereport_router)
 api_router.include_router(ontologies_router)
 api_router.include_router(archive_submissions_router)
 api_router.include_router(ncbi_router)
+api_router.include_router(eutils_router)
 
 
 @api_router.get("/health")
