@@ -1,4 +1,3 @@
-import pytest
 from xml.etree import ElementTree as ET
 
 from app.ncbi.xml_builder import (
