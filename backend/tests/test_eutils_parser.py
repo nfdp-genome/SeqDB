@@ -1,5 +1,5 @@
-import pytest
-from app.eutils.parser import parse_query, QueryTerm
+from app.eutils.parser import parse_query
+from app.eutils.search import build_query_filter, FIELD_MAP, DB_CONFIG
 
 
 def test_simple_text():
@@ -69,8 +69,6 @@ def test_empty_query():
 
 
 # --- Search engine tests ---
-
-from app.eutils.search import build_query_filter, FIELD_MAP, DB_CONFIG
 
 
 def test_field_map_has_standard_fields():
