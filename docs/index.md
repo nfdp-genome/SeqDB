@@ -20,6 +20,11 @@ SeqDB is a genomic data repository designed for:
 | **Bulk submission**      | Upload TSV sample sheets with automatic file matching            |
 | **File staging**         | Upload files via browser or FTP before linking to samples        |
 | **FAIR scoring**         | Per-project Findable, Accessible, Interoperable, Reusable checks |
+| **NCBI submission**      | Automated BioProject + BioSample + SRA deposition with polling   |
+| **ENA submission**       | XML export for ENA Webin submission                              |
+| **E-utilities API**      | NCBI-style query API (esearch, efetch, esummary, einfo)          |
+| **Samplesheet export**   | nf-core-compatible CSV for sarek, rnaseq, fetchngs, snpchip      |
+| **CLI tool**             | `seqdb` CLI for submission, fetching, and pipeline integration   |
 | **Programmatic API**     | ENA-compatible `/filereport` endpoint with download URLs         |
 | **Metadata validation**  | Checklist-based validation with cell-level error highlighting    |
 | **Presigned downloads**  | Secure, time-limited download URLs for all files                 |
@@ -38,8 +43,12 @@ Project (NFDP-PRJ-*)        ← Study-level metadata
 ## Quick Links
 
 - [Quick Start](user-guide/quickstart.md) — Get up and running in 5 minutes
-- [API Overview](api/overview.md) — Programmatic access guide
-- [File Reports](api/file-reports.md) — ENA-style file download API
+- [Submission Guides](submission-guides/wgs.md) — Step-by-step for each data type (WGS, RNA-seq, SNP chip, etc.)
+- [CLI Submission](user-guide/cli-submission.md) — Submit data from the command line
+- [Samplesheet Generation](user-guide/samplesheet-generation.md) — Export nf-core-ready CSVs
+- [NCBI Submission](submission-guides/ncbi-submission.md) — Deposit to NCBI archives
+- [E-utilities API](api/eutils.md) — Query data with NCBI-style syntax
+- [API Overview](api/overview.md) — Full programmatic access guide
 - [Bulk Submission](user-guide/bulk-submission.md) — Submit many samples at once
 - [Cloud Deployment](architecture/cloud-deployment.md) — Production deployment guide
 

@@ -75,6 +75,12 @@ FILE_EXT_MAP = {
     ".cram": "CRAM",
     ".vcf": "VCF",
     ".vcf.gz": "VCF",
+    ".idat": "IDAT",
+    ".bed": "BED_BIM_FAM",
+    ".bim": "BED_BIM_FAM",
+    ".fam": "BED_BIM_FAM",
+    ".ped": "PED_MAP",
+    ".map": "PED_MAP",
 }
 
 

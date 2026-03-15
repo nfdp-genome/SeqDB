@@ -15,6 +15,7 @@ class LibraryStrategy(str, enum.Enum):
     RNA_SEQ = "RNA-Seq"
     AMPLICON = "AMPLICON"
     TARGETED = "TARGETED"
+    GENOTYPING = "GENOTYPING"
     OTHER = "OTHER"
 
 

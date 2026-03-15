@@ -18,6 +18,8 @@ import {
   Download,
   FileText,
   Copy,
+  CloudUpload,
+  Loader2,
 } from "lucide-react";
 import api from "@/lib/api";
 import { Button } from "@/components/ui/button";
@@ -47,12 +49,21 @@ import { FairScore } from "@/components/fair-score";
 interface Project {
   accession: string;
   ena_accession?: string;
+  ncbi_accession?: string;
   title: string;
   description: string;
   project_type: string;
   release_date?: string;
   license: string;
   created_at: string;
+}
+
+interface NCBIStatus {
+  entity_type: string;
+  entity_accession: string;
+  status: string;
+  ncbi_accession?: string;
+  submission_id?: string;
 }
 
 interface Sample {
@@ -117,6 +128,11 @@ export default function ProjectDetailPage() {
     queryFn: () => api.get(`/filereport?accession=${accession}`).then((r) => r.data),
   });
 
+  const { data: ncbiStatus } = useQuery<NCBIStatus[]>({
+    queryKey: ["project-ncbi", accession],
+    queryFn: () => api.get(`/ncbi/status/${accession}`).then((r) => r.data),
+  });
+
   if (isLoading) return <p className="p-6 text-muted-foreground">Loading...</p>;
   if (!project) return <p className="p-6 text-red-500">Project not found</p>;
 
@@ -125,6 +141,7 @@ export default function ProjectDetailPage() {
     queryClient.invalidateQueries({ queryKey: ["project-fair", accession] });
     queryClient.invalidateQueries({ queryKey: ["project-samples", accession] });
     queryClient.invalidateQueries({ queryKey: ["project-files", accession] });
+    queryClient.invalidateQueries({ queryKey: ["project-ncbi", accession] });
   };
 
   return (
@@ -206,6 +223,14 @@ export default function ProjectDetailPage() {
       {files.length > 0 && (
         <FilesCard files={files} projectAccession={accession} />
       )}
+
+      {/* NCBI Submission */}
+      <NCBICard
+        projectAccession={accession}
+        ncbiAccession={project.ncbi_accession}
+        ncbiStatus={ncbiStatus}
+        onSubmitted={invalidate}
+      />
     </div>
   );
 }
@@ -564,6 +589,139 @@ function AddSampleForm({ projectAccession, onAdded }: { projectAccession: string
         {saving ? "Creating..." : "Create Sample"}
       </Button>
     </div>
+  );
+}
+
+/* ---------- NCBI Submission Card ---------- */
+
+function NCBICard({
+  projectAccession,
+  ncbiAccession,
+  ncbiStatus,
+  onSubmitted,
+}: {
+  projectAccession: string;
+  ncbiAccession?: string;
+  ncbiStatus?: NCBIStatus[];
+  onSubmitted: () => void;
+}) {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    setError("");
+    setSuccess("");
+    try {
+      await api.post(`/ncbi/submit/${projectAccession}`);
+      setSuccess("Submitted to NCBI. Accessions will be assigned automatically.");
+      onSubmitted();
+    } catch (err) {
+      let msg = "NCBI submission failed";
+      if (err && typeof err === "object" && "response" in err) {
+        const axErr = err as { response?: { data?: { detail?: unknown } } };
+        const detail = axErr.response?.data?.detail;
+        if (typeof detail === "string") msg = detail;
+      }
+      setError(msg);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const hasSubmissions = ncbiStatus && ncbiStatus.length > 0;
+  const allCompleted = hasSubmissions && ncbiStatus.every((s) => s.status === "completed");
+
+  return (
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between">
+        <CardTitle className="flex items-center gap-2 text-sm">
+          <CloudUpload className="h-4 w-4" />
+          NCBI Submission
+          {ncbiAccession && (
+            <Badge variant="outline" className="ml-1 font-mono text-xs">
+              {ncbiAccession}
+            </Badge>
+          )}
+        </CardTitle>
+        {!allCompleted && (
+          <Button
+            size="sm"
+            onClick={handleSubmit}
+            disabled={submitting}
+          >
+            {submitting ? (
+              <>
+                <Loader2 className="mr-1 h-3.5 w-3.5 animate-spin" />
+                Submitting...
+              </>
+            ) : (
+              <>
+                <CloudUpload className="mr-1 h-3.5 w-3.5" />
+                {hasSubmissions ? "Resubmit to NCBI" : "Submit to NCBI"}
+              </>
+            )}
+          </Button>
+        )}
+      </CardHeader>
+      <CardContent className="space-y-3">
+        {error && (
+          <div className="flex items-center gap-2 text-sm text-red-500">
+            <AlertCircle className="h-4 w-4" />
+            {error}
+          </div>
+        )}
+        {success && (
+          <div className="flex items-center gap-2 text-sm text-green-600">
+            <CheckCircle className="h-4 w-4" />
+            {success}
+          </div>
+        )}
+
+        {!hasSubmissions ? (
+          <p className="text-sm text-muted-foreground">
+            No NCBI submissions for this project. Click &quot;Submit to NCBI&quot; to deposit
+            the project, samples, and experiments to NCBI.
+          </p>
+        ) : (
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Entity</TableHead>
+                <TableHead>Accession</TableHead>
+                <TableHead>NCBI Accession</TableHead>
+                <TableHead>Status</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {ncbiStatus!.map((s, i) => (
+                <TableRow key={i}>
+                  <TableCell className="text-sm capitalize">{s.entity_type}</TableCell>
+                  <TableCell className="font-mono text-xs">{s.entity_accession}</TableCell>
+                  <TableCell className="font-mono text-xs">
+                    {s.ncbi_accession || <span className="text-muted-foreground">—</span>}
+                  </TableCell>
+                  <TableCell>
+                    <Badge
+                      variant={
+                        s.status === "completed"
+                          ? "default"
+                          : s.status === "failed"
+                          ? "destructive"
+                          : "secondary"
+                      }
+                    >
+                      {s.status}
+                    </Badge>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        )}
+      </CardContent>
+    </Card>
   );
 }
 

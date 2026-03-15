@@ -12,3 +12,7 @@ node_modules/
 # Environment
 .env
 .env.local
+
+# Internal plans and specs (not for public docs)
+docs/plans/
+docs/superpowers/

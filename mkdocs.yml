@@ -1,6 +1,6 @@
-site_name: SeqDB
+site_name: NFDP SeqDB Documentation
 site_description: SeqDB — Genomic Data Deposition and Management Platform
-site_author: NFLDP genome and data science 
+site_author: NFLDP genome and data science
 site_url: https://docs.seqdb.nfdp.dev/
 
 repo_url: https://github.com/nfdp-genome/SeqDB
@@ -79,11 +79,23 @@ nav:
   - Home: index.md
   - Getting Started:
       - Quick Start: user-guide/quickstart.md
-      - CLI Reference: user-guide/cli.md
       - Submitting Data: user-guide/submitting-data.md
       - Bulk Submission: user-guide/bulk-submission.md
+      - CLI Submission: user-guide/cli-submission.md
+      - CLI Reference: user-guide/cli.md
       - File Staging & Upload: user-guide/file-upload.md
+      - Samplesheet Generation: user-guide/samplesheet-generation.md
       - FAIR Data Principles: user-guide/fair-data.md
+  - Submission Guides:
+      - Whole Genome Sequencing: submission-guides/wgs.md
+      - RNA Sequencing: submission-guides/rnaseq.md
+      - Amplicon Sequencing: submission-guides/amplicon.md
+      - Metagenomics: submission-guides/metagenomics.md
+      - SNP Chip Genotyping: submission-guides/snpchip.md
+      - Long-Read Sequencing: submission-guides/long-reads.md
+      - Hi-C Sequencing: submission-guides/hic.md
+      - NCBI Submission: submission-guides/ncbi-submission.md
+      - ENA Submission: submission-guides/ena-submission.md
   - API Reference:
       - Overview: api/overview.md
       - Authentication: api/authentication.md
@@ -92,6 +104,7 @@ nav:
       - Experiments & Runs: api/experiments-runs.md
       - File Reports: api/file-reports.md
       - Bulk Submit: api/bulk-submit.md
+      - E-utilities: api/eutils.md
       - Search: api/search.md
       - Staging: api/staging.md
       - Checklists: api/checklists.md

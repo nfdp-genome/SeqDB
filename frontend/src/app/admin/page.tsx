@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, FileOutput, Settings } from "lucide-react";
+import { Users, FileOutput, CloudUpload, Settings } from "lucide-react";
 
 const sections = [
   {
@@ -16,6 +16,12 @@ const sections = [
     title: "ENA Submissions",
     description: "Export XML, manage public depositions",
     icon: FileOutput,
+  },
+  {
+    href: "/admin/ncbi",
+    title: "NCBI Submissions",
+    description: "Submit to NCBI, track accession assignments",
+    icon: CloudUpload,
   },
 ];
 
