@@ -12,6 +12,7 @@ import {
   Dna,
   LogIn,
   LogOut,
+  User2,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 
@@ -20,6 +21,7 @@ const navItems = [
   { href: "/submit", label: "Submit Data", icon: Upload },
   { href: "/browse", label: "Browse", icon: Search },
   { href: "/fair", label: "FAIR Dashboard", icon: FileCheck },
+  { href: "/profile", label: "Profile", icon: User2 },
   { href: "/admin", label: "Admin", icon: Settings },
 ];
 

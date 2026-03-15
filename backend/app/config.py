@@ -18,6 +18,17 @@ class Settings(BaseSettings):
     ncbi_submitter_email: str = ""
     ncbi_center_name: str = "NFDP"
 
+    # Root admin (seeded on startup)
+    root_admin_email: str = "genome@nfdp.gov.sa"
+    root_admin_password: str = "nfdproot"
+
+    # OIDC / Keycloak
+    oidc_enabled: bool = False
+    oidc_client_id: str = ""
+    oidc_client_secret: str = ""
+    oidc_discovery_url: str = ""  # e.g. https://keycloak.nfdp.dev/realms/nfdp/.well-known/openid-configuration
+    oidc_redirect_uri: str = "http://localhost:3000/auth/callback"
+
     model_config = {"env_file": ".env"}
 
 

@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/lib/auth-context";
+
+const baseURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -25,14 +28,31 @@ export default function LoginPage() {
     try {
       if (mode === "register") {
         await register(email, password, fullName);
+        router.push("/dashboard");
       } else {
-        await login(email, password);
+        const result = await login(email, password);
+        if (result?.must_change_password) {
+          router.push("/change-password");
+        } else {
+          router.push("/dashboard");
+        }
       }
-      router.push("/dashboard");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Authentication failed");
     }
     setLoading(false);
+  }
+
+  async function handleSSO() {
+    try {
+      const res = await fetch(`${baseURL}/auth/oidc/login`);
+      const data = await res.json();
+      if (data.authorization_url) {
+        window.location.href = data.authorization_url;
+      }
+    } catch {
+      setError("SSO is not available");
+    }
   }
 
   return (
@@ -97,6 +117,22 @@ export default function LoginPage() {
                 </>
               )}
             </p>
+            <div className="flex items-center justify-between text-sm">
+              <Link href="/forgot-password" className="text-primary hover:underline">
+                Forgot password?
+              </Link>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">Or</span>
+              </div>
+            </div>
+            <Button type="button" variant="outline" className="w-full" onClick={handleSSO}>
+              Sign in with SSO
+            </Button>
           </form>
         </CardContent>
       </Card>

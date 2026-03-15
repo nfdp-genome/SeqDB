@@ -3,7 +3,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1.router import api_router
-from app.database import engine, Base
+from app.database import engine, async_session, Base
+from app.services.seed import seed_root_admin
 import app.models  # noqa: F401 — ensure all models are registered
 
 
@@ -11,6 +12,8 @@ import app.models  # noqa: F401 — ensure all models are registered
 async def lifespan(app: FastAPI):
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+    async with async_session() as db:
+        await seed_root_admin(db)
     yield
 
 

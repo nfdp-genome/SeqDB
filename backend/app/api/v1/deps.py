@@ -31,3 +31,9 @@ async def require_admin(user: User = Depends(get_current_user)) -> User:
     if user.role.value != "admin":
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Admin access required")
     return user
+
+
+async def require_password_changed(user: User = Depends(get_current_user)) -> User:
+    if user.must_change_password:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Password change required")
+    return user
